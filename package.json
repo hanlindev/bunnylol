@@ -2,14 +2,15 @@
   "name": "rithik-bunnylol",
   "main": "main.js",
   "scripts": {
-    "build": "babel src/ -d compiled/",
+    "build": "babel --extensions '.ts' src/ --out-dir compiled/",
     "bundle": "rollup compiled/app.js -o bundle.js -f cjs --compact",
-    "minify": "minify --mangle bundle.js -o main.js",
-    "flow": "flow"
+    "prepublish": "yarn run build && yarn run bundle",
+    "minify": "minify --mangle bundle.js -o main.js"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.5",
     "@babel/core": "^7.11.4",
+    "@babel/preset-env": "^7.21.4",
     "@babel/preset-flow": "^7.10.4",
     "@babel/preset-typescript": "^7.21.4",
     "babel-minify": "^0.5.1",
