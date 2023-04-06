@@ -1,4 +1,10 @@
-export const COMMANDS = {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.COMMANDS = void 0;
+var COMMANDS = {
   fb: {
     name: "Facebook",
     url: "https://facebook.com/",
@@ -159,3 +165,4 @@ export const COMMANDS = {
     searchurl: "https://www.google.com/search?q="
   }
 };
+exports.COMMANDS = COMMANDS;

@@ -1,334 +1,94 @@
-'use strict';const COMMANDS = {
-  fb: {
-    name: "Facebook",
-    url: "https://facebook.com/",
-    searchurl: "https://www.facebook.com/search/top/?q="
-  },
-  m: {
-    name: "Messenger Desktop App",
-    url: "messenger://"
-  },
-  mw: {
-    name: "Messenger Web",
-    url: "https://www.messenger.com/"
-  },
-  wa: {
-    name: "WhatsApp Desktop App",
-    url: "whatsapp://"
-  },
-  waw: {
-    name: "WhatsApp Web",
-    url: "https://web.whatsapp.com/"
-  },
-  gm: {
-    name: "Gmail",
-    url: "https://mail.google.com/mail/u/0",
-    searchurl: "https://mail.google.com/mail/u/"
-  },
-  gd: {
-    name: "Google Drive",
-    url: "https://drive.google.com/drive/u/0",
-    searchurl: "https://drive.google.com/drive/u/"
-  },
-  sis: {
-    name: "UVA SIS",
-    url: "https://sisuva.admin.virginia.edu/psc/ihprd/UVSS/SA/s/WEBLIB_HCX_GN.H_SPRINGBOARD.FieldFormula.IScript_Main"
-  },
-  col: {
-    name: "UVA Collab",
-    url: "https://collab.its.virginia.edu/portal"
-  },
-  yt: {
-    name: "YouTube",
-    url: "https://youtube.com/",
-    searchurl: "https://www.youtube.com/results?search_query="
-  },
-  tv: {
-    name: "YouTube TV",
-    url: "https://tv.youtube.com/"
-  },
-  gh: {
-    name: "GitHub",
-    url: "https://github.com/",
-    searchurl: "https://www.github.com/search?q="
-  },
-  r: {
-    name: "Reddit",
-    url: "https://reddit.com/",
-    searchurl: "https://www.reddit.com/search?q="
-  },
-  l: {
-    name: "Linkedin",
-    url: "https://linkedin.com/"
-  },
-  ig: {
-    name: "Instagram",
-    url: "https://instagram.com/",
-    searchurl: "https://instagram.com/"
-  },
-  tw: {
-    name: "Twitter",
-    url: "https://twitter.com/",
-    searchurl: "https://twitter.com/search?q="
-  },
-  me: {
-    name: "Rithik.me - Personal Website",
-    url: "https://rithik.me/me"
-  },
-  g: {
-    name: "Google",
-    url: "https://google.com/",
-    searchurl: "https://www.google.com/search?q="
-  },
-  wp: {
-    name: "Washington Post",
-    url: "https://www.washingtonpost.com/regional/"
-  },
-  wsj: {
-    name: "Wall Street Journal",
-    url: "https://www.wsj.com/"
-  },
-  cnn: {
-    name: "CNN",
-    url: "https://www.cnn.com/"
-  },
-  tr: {
-    name: "HooHacks Trello Board",
-    url: "https://trello.com/b/GjKhtVPK/hoohacks"
-  },
-  n: {
-    name: "Netflix",
-    url: "https://netflix.com/",
-    searchurl: "https://www.netflix.com/search?q="
-  },
-  h: {
-    name: "Hulu",
-    url: "https://hulu.com/"
-  },
-  pv: {
-    name: "Amazon Prime Video",
-    url: "https://www.amazon.com/Amazon-Video/b/?&node=2858778011&ref=dvm_MLP_ROWNA_US_1",
-    searchurl: "https://www.amazon.com/s?i=instant-video&ref=nb_sb_noss_2&k="
-  },
-  p: {
-    name: "Piazza",
-    url: "https://piazza.com/class"
-  },
-  vs: {
-    name: "VS Code",
-    url: "vscode://"
-  },
-  wf: {
-    name: "Webflow",
-    url: "https://webflow.com/design/hoohacks"
-  },
-  hs: {
-    name: "Hubspot",
-    url: "https://app.hubspot.com/"
-  },
-  $: {
-    name: "Robinhood",
-    url: "https://robinhood.com/",
-    searchurl: "https://robinhood.com/stocks/"
-  },
-  c: {
-    name: "Robinhood Crypto",
-    url: "https://robinhood.com/",
-    searchurl: "https://robinhood.com/crypto/"
-  },
-  cal: {
-    name: "Google Calendar",
-    url: "https://calendar.google.com/calendar/r"
-  },
-  uvacovid: {
-    name: "UVA COVID-19 Tracker",
-    url: "https://returntogrounds.virginia.edu/covid-tracker"
-  },
-  wiki: {
-    name: "Wikipedia",
-    url: "https://en.wikipedia.org",
-    searchurl: "https://en.wikipedia.org/wiki/"
-  },
-  todo: {
-    name: "Microsoft To Do",
-    url: "https://to-do.live.com"
-  },
-  DEFAULT: {
-    name: "Default - Google Search",
-    url: "https://google.com/",
-    searchurl: "https://www.google.com/search?q="
-  }
-};// j = join; d = discussion; c = UVA Collab; default to url; s = special
-const CLASSES = {
-  f1: {
-    name: "CS 4501: F1/10 Autonomous Racing: Perception, Planning, and Control for Autonomous Driving",
-    url: "https://linklab-uva.github.io/autonomousracing/",
-    collaburl: "https://collab.its.virginia.edu/portal/site/90579f89-3cbf-4f83-a4d7-902848f7703d",
-    discussionurl: "https://piazza.com/class/kko5x3rocvl3ky"
-  },
-  pl: {
-    name: "CS 4640: Programming Languages for Web Applications",
-    url: "https://www.cs.virginia.edu/~up3f/cs4640/schedule.html",
-    collaburl: "https://collab.its.virginia.edu/portal/site/8fff0a03-d2d8-45c8-bda6-760bf8d7e2e4/",
-    discussionurl: "https://piazza.com/class/kkestnq1z5u3kl",
-    zoomurl: "https://virginia.zoom.us/j/95783077722?pwd=U2lLTkN3Y05WWGhJQ051Z3BUWmxvUT09"
-  },
-  cv: {
-    name: "CS 4501: Introduction to Computer Vision",
-    url: "https://www.vicenteordonez.com/vision/",
-    collaburl: "https://collab.its.virginia.edu/portal/site/a348b7f2-473b-46d4-b348-f189fc4889e3",
-    zoomurl: "https://virginia.zoom.us/j/99413743466?pwd=VHpmQW9SR1A5bmpseVZMN2tPZVZOdz09"
-  },
-  ear: {
-    name: "CS 3501: Embedded Computing & Robotics I",
-    url: "https://collab.its.virginia.edu/portal/site/cdd921f5-3ec5-4de7-9bdc-da5f5a1e92c8",
-    discussionurl: "discord://",
-    specialurl: "https://learn.zybooks.com/zybook/VIRGINIACSECE3501Spring2021?selectedPanel=assignments-panel"
-  },
-  sts: {
-    name: "STS 4600: The Engineer, Ethics, and Professional Responsibility",
-    url: "https://collab.its.virginia.edu/portal/site/d360b679-581f-496d-8782-7053d86aefca",
-    zoomurl: "https://virginia.zoom.us/j/93721024007?pwd=T1NJKzdrZG03L2pJN0dEQkcwUC91QT09"
-  },
-  apma: {
-    name: "APMA 2501: Mathematics of Information",
-    url: "http://www.ece.virginia.edu/~ffh8x/moi/",
-    collaburl: "https://collab.its.virginia.edu/portal/site/0778b7b4-8cd8-440c-9fcb-bd8e74d5b9f3",
-    discussionurl: "https://piazza.com/class/kknbo8nztqo6vg"
-  }
-};const viewHelpPage = function () {
-  const data = Object.keys(COMMANDS).map(command => {
-    const cmdData = COMMANDS[command];
-    return {
-      name: cmdData.name,
-      url: cmdData.url,
-      command: command
-    };
-  });
-  const columns = [{
-    data: 'command',
-    title: "Command"
-  }, {
-    data: 'name',
-    title: "Name"
-  }, {
-    data: 'url',
-    title: "URL"
-  }]; // $FlowFixMe - jQuery import
-
-  $('#help-table').DataTable({
-    data: data,
-    columns: columns,
-    order: [[1, "asc"]],
-    paging: false
-  });
-  const classesData = Object.keys(CLASSES).map(command => {
-    const cmdData = CLASSES[command];
-    return {
-      name: cmdData.name,
-      url: cmdData.url,
-      // $FlowFixMe - this is actually correct.
-      command
-    };
-  });
-  const classColumns = [{
-    data: 'command',
-    title: "Command"
-  }, {
-    data: 'name',
-    title: "Name"
-  }, {
-    data: 'url',
-    title: "URL"
-  }]; // $FlowFixMe - jQuery import
-
-  $('#classes-table').DataTable({
-    data: classesData,
-    columns: classColumns,
-    order: [[1, "asc"]],
-    paging: false
-  });
-};const redirect = async function (url) {
-  await window.location.replace(url);
-};
-
-const bunnylol = async function (currCmd) {
-  let arr = [];
-
-  if (currCmd.startsWith("$")) {
-    arr = currCmd.split(/[ $+]/g);
-    arr[0] = "$";
-
-    if (arr[1] === "") {
-      arr = ["$"];
-    }
-  } else {
-    arr = currCmd.split(/[ +]/g);
-  }
-
-  if (arr.length > 0) {
-    const prefix = arr[0].endsWith(".") ? arr[0].substring(0, arr[0].length - 1).toLowerCase() : arr[0].toLowerCase();
-
-    if (prefix in CLASSES) {
-      // $FlowFixMe - this is actually correct since the prefix is a key.
-      const classData = CLASSES[prefix];
-
-      if (arr.length > 1) {
-        if (arr[1].toLowerCase() === "j" && classData.zoomurl) {
-          await redirect(`${classData.zoomurl}`);
-          return true;
-        } else if (arr[1].toLowerCase() === "d" && classData.discussionurl) {
-          await redirect(`${classData.discussionurl}`);
-          return true;
-        } else if (arr[1].toLowerCase() === "c" && classData.collaburl) {
-          await redirect(`${classData.collaburl}`);
-          return true;
-        } else if (arr[1].toLowerCase() === "s" && classData.specialurl) {
-          await redirect(`${classData.specialurl}`);
-          return true;
-        }
+'use strict';function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+var _commands = require("./commands");
+var _help = require("./help");
+var _URL$searchParams$get;
+function _regeneratorRuntime() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, defineProperty = Object.defineProperty || function (obj, key, desc) { obj[key] = desc.value; }, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return defineProperty(generator, "_invoke", { value: makeInvokeMethod(innerFn, self, context) }), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; defineProperty(this, "_invoke", { value: function value(method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; } function maybeInvokeDelegate(delegate, context) { var methodName = context.method, method = delegate.iterator[methodName]; if (undefined === method) return context.delegate = null, "throw" === methodName && delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method) || "return" !== methodName && (context.method = "throw", context.arg = new TypeError("The iterator does not provide a '" + methodName + "' method")), ContinueSentinel; var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, defineProperty(Gp, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), defineProperty(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (val) { var object = Object(val), keys = []; for (var key in object) keys.push(key); return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, "catch": function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+var redirect = /*#__PURE__*/function () {
+  var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(url) {
+    return _regeneratorRuntime().wrap(function _callee$(_context) {
+      while (1) switch (_context.prev = _context.next) {
+        case 0:
+          _context.next = 2;
+          return window.location.replace(url);
+        case 2:
+        case "end":
+          return _context.stop();
       }
-
-      await redirect(`${classData.url}`);
-      return true;
-    }
-
-    if (prefix in COMMANDS) {
-      // $FlowFixMe - this is actually correct since the prefix is a key.
-      const command = COMMANDS[prefix];
-      const protocol = new URL(command.url).protocol;
-
-      if (protocol !== "https:" && protocol !== "http:") {
-        viewHelpPage();
+    }, _callee);
+  }));
+  return function redirect(_x) {
+    return _ref.apply(this, arguments);
+  };
+}();
+var bunnylol = /*#__PURE__*/function () {
+  var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(currCmd) {
+    var arr, prefix, command, protocol, searchParam;
+    return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+      while (1) switch (_context2.prev = _context2.next) {
+        case 0:
+          arr = [];
+          if (currCmd.startsWith("$")) {
+            arr = currCmd.split(/[ $+]/g);
+            arr[0] = "$";
+            if (arr[1] === "") {
+              arr = ["$"];
+            }
+          } else {
+            arr = currCmd.split(/[ +]/g);
+          }
+          if (!(arr.length > 0)) {
+            _context2.next = 18;
+            break;
+          }
+          prefix = arr[0].endsWith(".") ? arr[0].substring(0, arr[0].length - 1).toLowerCase() : arr[0].toLowerCase();
+          if (!(prefix in _commands.COMMANDS)) {
+            _context2.next = 18;
+            break;
+          }
+          command = _commands.COMMANDS[prefix];
+          protocol = new URL(command.url).protocol;
+          if (protocol !== "https:" && protocol !== "http:") {
+            (0, _help.viewHelpPage)();
+          }
+          if (!(command.searchurl && arr.length !== 1)) {
+            _context2.next = 15;
+            break;
+          }
+          searchParam = prefix !== "$" ? prefix.length + 1 : prefix.length;
+          _context2.next = 12;
+          return redirect("".concat(command.searchurl).concat(encodeURIComponent(currCmd.substr(searchParam))));
+        case 12:
+          return _context2.abrupt("return", true);
+        case 15:
+          _context2.next = 17;
+          return redirect(command.url);
+        case 17:
+          return _context2.abrupt("return", true);
+        case 18:
+          return _context2.abrupt("return", false);
+        case 19:
+        case "end":
+          return _context2.stop();
       }
-
-      if (command.searchurl && arr.length !== 1) {
-        const searchParam = prefix !== "$" ? prefix.length + 1 : prefix.length;
-        await redirect(`${command.searchurl}${encodeURIComponent(currCmd.substr(searchParam))}`);
-        return true;
-      } else {
-        await redirect(command.url);
-        return true;
-      }
-    }
-  }
-
-  return false;
-};
-
-const currCmd = new URL(window.location.href).searchParams.get("search") ?? "help";
-
+    }, _callee2);
+  }));
+  return function bunnylol(_x2) {
+    return _ref2.apply(this, arguments);
+  };
+}();
+var currCmd = (_URL$searchParams$get = new URL(window.location.href).searchParams.get("search")) !== null && _URL$searchParams$get !== void 0 ? _URL$searchParams$get : "help";
 switch (currCmd) {
   case "help" :
-    viewHelpPage();
+    (0, _help.viewHelpPage)();
     break;
-
   default:
-    bunnylol(currCmd).then(done => {
-      if (!done && COMMANDS.DEFAULT.searchurl) {
-        redirect(`${COMMANDS.DEFAULT.searchurl}${encodeURIComponent(currCmd)}`);
+    bunnylol(currCmd).then(function (done) {
+      if (!done && _commands.COMMANDS.DEFAULT.searchurl) {
+        redirect("".concat(_commands.COMMANDS.DEFAULT.searchurl).concat(encodeURIComponent(currCmd)));
       }
-    }).catch(reject => {
+    })["catch"](function (reject) {
       console.log(reject);
     });
     break;
