@@ -3,7 +3,7 @@
   "main": "main.js",
   "scripts": {
     "build": "babel --extensions '.ts' src/ --out-dir compiled/",
-    "bundle": "rollup compiled/app.js -o bundle.js -f cjs --compact",
+    "bundle": "rollup compiled/app.js -o ./static/js/bundle.js -f cjs --compact",
     "prepublish": "yarn run build && yarn run bundle",
     "minify": "minify --mangle bundle.js -o main.js"
   },
