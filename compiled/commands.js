@@ -4,6 +4,10 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.COMMANDS = void 0;
+var lol = {
+  name: 'BunnyLOL',
+  url: 'https://hanlindev.github.io/bunnylol'
+};
 var COMMANDS = {
   fb: {
     name: "Facebook",
@@ -163,6 +167,7 @@ var COMMANDS = {
     name: "Default - Google Search",
     url: "https://google.com/",
     searchurl: "https://www.google.com/search?q="
-  }
+  },
+  lol: lol
 };
 exports.COMMANDS = COMMANDS;

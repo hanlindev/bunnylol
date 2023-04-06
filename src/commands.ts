@@ -5,7 +5,7 @@ export type CommandType = {
 };
 
 export type CommandNames = 'fb' | 'm' | 'mw' | 'wa' | 'waw' | 'gm' | 'sis' | 'col' | 'yt' | 'tv' | 'gh' | 'r' | 'l' | 'me' | 'ig' | 'tw' | 'tr' | 'vs' | 'todo' |
-                           'c' | 'wf' | '$' | 'cal' | 'uvacovid' | 'hs' | 'p' | 'n' | 'h' | 'pv' | 'gd' | 'wp' | 'wsj' | 'cnn' | 'wiki' | 'g' | 'DEFAULT';
+                           'c' | 'wf' | '$' | 'cal' | 'uvacovid' | 'hs' | 'p' | 'n' | 'h' | 'pv' | 'gd' | 'wp' | 'wsj' | 'cnn' | 'wiki' | 'g' | 'DEFAULT' | 'lol';
 
 export type CommandDataTableType = {
     name: string, 
@@ -16,6 +16,11 @@ export type CommandDataTableType = {
 export type ColumnDataTableType = {
     data: string, 
     title: string 
+};
+
+const lol: CommandType = {
+    name: 'BunnyLOL',
+    url: 'https://hanlindev.github.io/bunnylol',
 };
 
 export const COMMANDS: Record<CommandNames, CommandType> = {
@@ -177,5 +182,6 @@ export const COMMANDS: Record<CommandNames, CommandType> = {
         name: "Default - Google Search",
         url: "https://google.com/",
         searchurl: "https://www.google.com/search?q="
-    }
+    },
+    lol,
 };
