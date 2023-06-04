@@ -5,7 +5,7 @@ export type CommandType = {
 };
 
 export type CommandNames = 'fb' | 'm' | 'mw' | 'wa' | 'waw' | 'gm' | 'sis' | 'col' | 'yt' | 'tv' | 'gh' | 'r' | 'l' | 'me' | 'ig' | 'tw' | 'tr' | 'vs' | 'todo' |
-                           'c' | 'wf' | '$' | 'cal' | 'uvacovid' | 'hs' | 'p' | 'n' | 'h' | 'pv' | 'gd' | 'wp' | 'wsj' | 'cnn' | 'wiki' | 'g' | 'DEFAULT' | 'lol';
+                           'c' | 'wf' | '$' | 'cal' | 'uvacovid' | 'hs' | 'p' | 'n' | 'h' | 'pv' | 'gd' | 'wiki' | 'g' | 'DEFAULT' | 'lol' | 'map';
 
 export type CommandDataTableType = {
     name: string, 
@@ -21,6 +21,12 @@ export type ColumnDataTableType = {
 const lol: CommandType = {
     name: 'BunnyLOL',
     url: 'https://hanlindev.github.io/bunnylol',
+};
+
+const map: CommandType = {
+    name: 'Map (Google)',
+    url: 'https://www.google.com/maps/',
+    searchurl: 'https://www.google.com/maps/?q=',
 };
 
 export const COMMANDS: Record<CommandNames, CommandType> = {
@@ -105,18 +111,6 @@ export const COMMANDS: Record<CommandNames, CommandType> = {
         url: "https://google.com/",
         searchurl: "https://www.google.com/search?q="
     },
-    wp: {
-        name: "Washington Post",
-        url: "https://www.washingtonpost.com/regional/"
-    },
-    wsj: {
-        name: "Wall Street Journal",
-        url: "https://www.wsj.com/"
-    },
-    cnn: {
-        name: "CNN",
-        url: "https://www.cnn.com/"
-    },
     tr: {
         name: "HooHacks Trello Board",
         url: "https://trello.com/b/GjKhtVPK/hoohacks"
@@ -184,4 +178,5 @@ export const COMMANDS: Record<CommandNames, CommandType> = {
         searchurl: "https://www.google.com/search?q="
     },
     lol,
+    map,
 };
