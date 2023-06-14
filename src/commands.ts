@@ -4,8 +4,43 @@ export type CommandType = {
     searchurl?: string,
 };
 
-export type CommandNames = 'fb' | 'm' | 'mw' | 'wa' | 'waw' | 'gm' | 'sis' | 'col' | 'yt' | 'tv' | 'gh' | 'r' | 'l' | 'me' | 'ig' | 'tw' | 'tr' | 'vs' | 'todo' |
-                           'c' | 'wf' | '$' | 'cal' | 'uvacovid' | 'hs' | 'p' | 'n' | 'h' | 'pv' | 'gd' | 'wiki' | 'g' | 'DEFAULT' | 'lol' | 'map';
+export type CommandNames = 
+    'fb' 
+    | 'm' 
+    | 'mw' 
+    | 'wa' 
+    | 'waw' 
+    | 'gm' 
+    | 'sis' 
+    | 'col' 
+    | 'yt' 
+    | 'tv' 
+    | 'gh' 
+    | 'r' 
+    | 'l' 
+    | 'me' 
+    | 'ig' 
+    | 'tw' 
+    | 'tr' 
+    | 'vs' 
+    | 'todo' 
+    | 'c' 
+    | 'wf' 
+    | '$' 
+    | 'cal' 
+    | 'uvacovid' 
+    | 'hs' 
+    | 'p' 
+    | 'n' 
+    | 'h' 
+    | 'pv' 
+    | 'gd' 
+    | 'wiki' 
+    | 'g' 
+    | 'DEFAULT' 
+    | 'lol' 
+    | 'map'
+    | 'yarn';
 
 export type CommandDataTableType = {
     name: string, 
@@ -27,6 +62,12 @@ const map: CommandType = {
     name: 'Map (Google)',
     url: 'https://www.google.com/maps/',
     searchurl: 'https://www.google.com/maps/?q=',
+};
+
+const yarn: CommandType = {
+    name: 'Yarn Package Manager',
+    url: 'https://yarnpkg.com',
+    searchurl: 'https://yarnpkg.com/?q='
 };
 
 export const COMMANDS: Record<CommandNames, CommandType> = {
@@ -179,4 +220,5 @@ export const COMMANDS: Record<CommandNames, CommandType> = {
     },
     lol,
     map,
+    yarn,
 };
