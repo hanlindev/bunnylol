@@ -40,7 +40,8 @@ export type CommandNames =
     | 'DEFAULT' 
     | 'lol' 
     | 'map'
-    | 'yarn';
+    | 'yarn'
+    | 'nusmods';
 
 export type CommandDataTableType = {
     name: string, 
@@ -211,14 +212,19 @@ export const COMMANDS: Record<CommandNames, CommandType> = {
     },
     todo: {
         name: "Microsoft To Do",
-        url: "https://to-do.live.com"
+        url: "https://to-do.live.com",
+    },
+    lol,
+    map,
+    yarn,
+    nusmods: {
+        name: 'NUS Mods',
+        url: 'https://nusmods.com/',
+        searchurl: 'https://nusmods.com/courses?q=',
     },
     DEFAULT: {
         name: "Default - Google Search",
         url: "https://google.com/",
         searchurl: "https://www.google.com/search?q="
     },
-    lol,
-    map,
-    yarn,
 };
