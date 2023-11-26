@@ -22,7 +22,6 @@ export type CommandNames =
     | 'ig' 
     | 'tw' 
     | 'tr' 
-    | 'vs' 
     | 'todo' 
     | 'c' 
     | 'wf' 
@@ -174,10 +173,6 @@ export const COMMANDS: Record<CommandNames, CommandType> = {
     p: {
         name: "Piazza",
         url: "https://piazza.com/class"
-    },
-    vs: {
-        name: "VS Code",
-        url: "vscode://",
     },
     wf: {
         name: "Webflow",
