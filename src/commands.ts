@@ -40,7 +40,8 @@ export type CommandNames =
     | 'lol' 
     | 'map'
     | 'yarn'
-    | 'nusmods';
+    | 'nusmods'
+    | 'npm';
 
 export type CommandDataTableType = {
     name: string, 
@@ -68,6 +69,12 @@ const yarn: CommandType = {
     name: 'Yarn Package Manager',
     url: 'https://yarnpkg.com',
     searchurl: 'https://yarnpkg.com/?q='
+};
+
+const npm: CommandType = {
+    name: 'NPM',
+    url: 'https://www.npmjs.com',
+    searchurl: 'https://www.npmjs.com/search?q=',
 };
 
 export const COMMANDS: Record<CommandNames, CommandType> = {
@@ -217,6 +224,7 @@ export const COMMANDS: Record<CommandNames, CommandType> = {
         url: 'https://nusmods.com/',
         searchurl: 'https://nusmods.com/courses?q=',
     },
+    npm,
     DEFAULT: {
         name: "Default - Google Search",
         url: "https://google.com/",
