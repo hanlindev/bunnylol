@@ -14,10 +14,12 @@ jobs:
           fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
       - name: Webpack bundle
         run: |
+          corepack enable
+          yarn set version berry
           yarn
           yarn build
       - name: Deploy 🚀
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
