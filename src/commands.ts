@@ -42,7 +42,8 @@ export type CommandNames =
   | "yarn"
   | "nusmods"
   | "npm"
-  | "bing";
+  | "bing"
+  | "chat";
 
 export type CommandDataTableType = {
   name: string;
@@ -82,6 +83,12 @@ const bing: CommandType = {
   name: "Bing",
   url: "https://cn.bing.com",
   searchurl: "https://cn.bing.com/search?q=",
+};
+
+const chat: CommandType = {
+  name: "Chat GPT",
+  url: "https://chatgpt.com",
+  searchurl: "https://chatgpt.com/?q=",
 };
 
 export const COMMANDS: Record<CommandNames, CommandType> = {
@@ -233,6 +240,7 @@ export const COMMANDS: Record<CommandNames, CommandType> = {
   },
   npm,
   bing,
+  chat,
   DEFAULT: {
     name: "Default - Google Search",
     url: "https://google.com/",
